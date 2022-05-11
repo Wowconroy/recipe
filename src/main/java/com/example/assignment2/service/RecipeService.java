@@ -4,7 +4,9 @@ import com.example.assignment2.domain.Recipe;
 import com.example.assignment2.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -18,8 +20,10 @@ public class RecipeService {
     }
 
     public List<Recipe> getAllRecipe(){
-        Iterable<Recipe> all = repository.findAll();
+//        Set<Recipe> recipes = new HashSet<>();
+//        repository.findAll().iterator().forEachRemaining(recipes::add);
 
+        Iterable<Recipe> all = repository.findAll();
         List<Recipe> recipeList = StreamSupport
                 .stream(all.spliterator(), false)
                 .collect(Collectors.toList());
