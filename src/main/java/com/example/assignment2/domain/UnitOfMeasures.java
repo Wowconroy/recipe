@@ -3,7 +3,7 @@ package com.example.assignment2.domain;
 import javax.persistence.*;
 
 @Entity
-public class UtilOfMeasures {
+public class UnitOfMeasures {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
