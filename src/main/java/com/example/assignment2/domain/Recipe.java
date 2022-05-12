@@ -1,5 +1,7 @@
 package com.example.assignment2.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +19,8 @@ public class Recipe {
     private String source;
     private String url;
 
+    //    @Column(columnDefinition="TEXT")
+//@Type( type = "org.hibernate.type.TextType")
     @Lob
     private String directions;
 
@@ -119,6 +123,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
+    }
+
+    public Recipe addIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
     }
 
     public Set<Ingredient> getIngredients() {
