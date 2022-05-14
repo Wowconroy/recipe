@@ -4,6 +4,7 @@ import com.example.assignment2.domain.*;
 import com.example.assignment2.repositories.CategoryRepository;
 import com.example.assignment2.repositories.RecipeRepository;
 import com.example.assignment2.repositories.UnitOfMeasuresRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
