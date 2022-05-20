@@ -31,4 +31,9 @@ public class RecipeService {
                 .collect(Collectors.toSet());
         return recipeList;
     }
+
+    public Recipe findById(Long id){
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Recipe not found"));
+    }
 }
